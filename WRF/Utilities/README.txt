@@ -65,7 +65,18 @@ name=SST
   fill_missing=-1.E30
   flag_in_output=FLAG_SST missing_value=-1.E30
   
-  
+#### Vtables ####
+Vtables are used by ungrib.exe to identify the respective variable. For well known
+input files, e.g., ECMWF reanalysis they are directly provided by WRF (Vtable.pl_ecmwf).
+In case you are using CESM and the ./run_cesm_preprocessing.sh (in scripts folder)
+script, you need the Vtable_cesm. This is because run_cesm_preprocessing assigns
+grib codes that corresponds to this Vtable. To obtain the constant variables as
+landmask and topography the Vtable_constants is needed, but only once.
+
+# Vtable_constants
+# Vtable_cesm
+
+
 #### REGISTRY FILE ####
 The Registry file controls the variables that are written to the outfile. As
 I/O processes are slowing down the simulation it is wise to adjust this file
